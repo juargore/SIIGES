@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "655537914309",
+    "firebase_url": "https://siiga-b0aa7.firebaseio.com",
+    "project_id": "siiga-b0aa7",
+    "storage_bucket": "siiga-b0aa7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655537914309:android:01105757574f7d8e",
+        "android_client_info": {
+          "package_name": "com.glass.siiga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655537914309-v1ht49fvka7gqidlpqen17fveo4rm7rb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABiVMdOnl-JJ_Su-LPI9SvorLQ9lzNHnc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

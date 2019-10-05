@@ -1,0 +1,83 @@
+REVISAR RELACIONES:
+planteles
+programas
+docentes
+asignaturas
+hemerobibliografia
+infraestructura
+alumnos
+grupos
+calificaciones
+
+//==========================================
+
+CAMPOS DE CONTROL:
+fecha_alta
+hora_alta
+fecha_modificacion
+hora_modificacion
+id_usuario
+estatus
+
+//==========================================
+
+Tabla Perfiles
+id
+nombre
+descripcion
+
+//==========================================
+
+Tabla Modulos
+id
+nombre
+
+//==========================================
+
+Tabla PerfilesModulos
+id_perfil
+id_modulo
+
+//==========================================
+
+Tabla Usuarios
+id
+id_perfil
+id_persona
+tipo_usuario??????
+usuario
+contrasena
+
+//==========================================
+
+Tabla Personas 
+id
+id_domicilio
+titulo
+nombre
+apellido_paterno
+apellido_materno
+telefono
+celular
+correo
+nacionalidad
+sexo
+curp
+rfc
+fecha_nacimiento
+fotografia
+
+//==========================================
+
+Tabla Domicilios
+id
+calle
+numero exterior
+numero interior
+colonia
+cp
+municipio
+estado
+pais
+latitud
+longitud

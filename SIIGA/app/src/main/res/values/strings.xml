@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">SIIGES</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_registro">Registro</string>
+    <string name="title_activity_recuperar__contrasena">Recuperar_Contrasena</string>
+    <string name="doble_click">Presione nuevamete el botón ATRAS para salir de la App</string>
+    <string name="no_internet">Esta App necesita conexión a internet para poder funcionar. Por favor, conecte su dispositivo a internet e ingrese de nuevo</string>
+
+
+    <string-array name="array_titulos_menu_lateral">
+        <item>Noticias</item>
+        <item>Perfil</item>
+        <item>Avance</item>
+        <item>Notificaciones</item>
+        <item>Inspección</item>
+        <item>Pagos</item>
+        <item>Salir</item>
+    </string-array>
+
+    <!-- Iconos del menu lateral (en orden) -->
+    <array name="array_iconos_menu_lateral">
+        <item>@drawable/icon_noticias</item>
+        <item>@drawable/icon_perfil</item>
+        <item>@drawable/icon_avance</item>
+        <item>@drawable/icon_notificaciones</item>
+        <item>@drawable/icon_inspeccion</item>
+        <item>@drawable/icon_pagos</item>
+        <item>@drawable/icon_salir</item>
+    </array>
+
+    <!-- Iconos del menu lateral (blancos) -->
+    <array name="array_iconos_menu_lateral_b">
+        <item>@drawable/icon_noticias_b</item>
+        <item>@drawable/icon_perfil_b</item>
+        <item>@drawable/icon_avance_b</item>
+        <item>@drawable/icon_notificaciones_b</item>
+        <item>@drawable/icon_inspeccion_b</item>
+        <item>@drawable/icon_pagos_b</item>
+        <item>@drawable/icon_salir_b</item>
+    </array>
+
+    <!-- Iconos del menu lateral (rojos) -->
+    <array name="array_iconos_menu_lateral_r">
+        <item>@drawable/icon_noticias_r</item>
+        <item>@drawable/icon_perfil_r</item>
+        <item>@drawable/icon_avance_r</item>
+        <item>@drawable/icon_notificaciones_r</item>
+        <item>@drawable/icon_inspeccion_r</item>
+        <item>@drawable/icon_pagos_r</item>
+        <item>@drawable/icon_salir_r</item>
+    </array>
+    <string name="title_activity__inspeccion__ii">Activity_Inspeccion_II</string>
+
+</resources>

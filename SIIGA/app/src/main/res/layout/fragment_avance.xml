@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".fragments.Fragment_Pagos">
+
+    <LinearLayout
+        android:id="@+id/laySiAvance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F6"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="15dp"
+            android:visibility="visible"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="3dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Institución" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Spinner
+                        android:id="@+id/spinnerInstAvance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_spinner_white"
+                        android:paddingBottom="2dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="2dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/spinnerInstAvance"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/spinnerInstAvance"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/down_arrow" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Folio" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Spinner
+                        android:id="@+id/spinnerFolioAvance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_spinner_white"
+                        android:paddingBottom="2dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="2dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/spinnerFolioAvance"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/spinnerFolioAvance"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/down_arrow" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F6"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/txtFechaAvance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Porcentaje de avance al 12 de octubre de 2018"
+                android:textColor="@color/grisMasFuerte"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <RelativeLayout
+                    android:id="@+id/layGrisPadre"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.8"
+                    android:background="@drawable/barra_progreso_gris">
+
+                    <RelativeLayout
+                        android:id="@+id/layRojoHijo"
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:animateLayoutChanges="true"
+                        android:background="@drawable/barra_progreso_rojo">
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtPorcentajeAvance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1.2"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="0%"
+                    android:textColor="@color/rojoDebil"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvListaAvance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layNoAvance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/imagen_vacio" />
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:text="No hay conexión a internet"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtSubtitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Conecte el dispositivo a otra red y vuelva a intentarlo"
+            android:textColor="@color/grisFuerte"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>
