@@ -73,10 +73,8 @@ public class Activity_Main extends FragmentActivity {
     private ActionBarDrawerToggle icono_actionBar_menu;
     private boolean doubleBackToExit = false;
     private ArrayList<Item_Menu_Lateral> items_menu;
-    private String[] titulos_menu_lateral;
-    private TypedArray iconos_menu_lateral;
-    private TypedArray iconos_menu_lateral_b;
-    private TypedArray iconos_menu_lateral_r;
+    private String[] titulos_menu_lateral = {"Noticias", "Perfil",
+            "Avance", "Notificaciones", "Inspección", "Pagos", "Salir"};
     private Adaptador_Menu_Lateral adapter;
     private String titulo_actual = "SIIGA", rol_id;
     private int icono_superior = R.drawable.icon_noticias;
@@ -90,11 +88,13 @@ public class Activity_Main extends FragmentActivity {
 
         //Propiedades del Action bar
         actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.mipmap.icon_menu);
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor( R.color.rojoFuerte)));
-        actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+        if(actionBar != null){
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.icon_menu);
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor( R.color.rojoFuerte)));
+            actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+        }
 
         //Cambiar color de Status Bar
         Window window = Activity_Main.this.getWindow();
@@ -197,75 +197,76 @@ public class Activity_Main extends FragmentActivity {
     @SuppressLint("ResourceType")
     public void colocar_items_en_menu_lateral(){
         items_menu = new ArrayList<>();
-        titulos_menu_lateral = getResources().getStringArray(R.array.array_titulos_menu_lateral);
-        iconos_menu_lateral = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral);
-        iconos_menu_lateral_b = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral_b);
-        iconos_menu_lateral_r = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral_r);
+
+        //ArrayList<> iconos_menu_lateral = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral);
+        ArrayList<Integer> iconos_menu_lateral = new ArrayList<>();
+        iconos_menu_lateral.add(R.drawable.icon_noticias);
+        iconos_menu_lateral.add(R.drawable.icon_perfil);
+        iconos_menu_lateral.add(R.drawable.icon_avance);
+        iconos_menu_lateral.add(R.drawable.icon_notificaciones);
+        iconos_menu_lateral.add(R.drawable.icon_inspeccion);
+        iconos_menu_lateral.add(R.drawable.icon_pagos);
+        iconos_menu_lateral.add(R.drawable.icon_salir);
+
+        //TypedArray iconos_menu_lateral_b = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral_b);
+        ArrayList<Integer> iconos_menu_lateral_b = new ArrayList<>();
+        iconos_menu_lateral_b.add(R.drawable.icon_noticias_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_perfil_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_avance_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_notificaciones_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_inspeccion_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_pagos_b);
+        iconos_menu_lateral_b.add(R.drawable.icon_salir_b);
+
+        //TypedArray iconos_menu_lateral_r = getResources().obtainTypedArray(R.array.array_iconos_menu_lateral_r);
+        ArrayList<Integer> iconos_menu_lateral_r = new ArrayList<>();
+        iconos_menu_lateral_r.add(R.drawable.icon_noticias_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_perfil_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_avance_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_notificaciones_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_inspeccion_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_pagos_r);
+        iconos_menu_lateral_r.add(R.drawable.icon_salir_r);
 
         //Noticias
-        items_menu.add(new Item_Menu_Lateral(0, titulos_menu_lateral[0], iconos_menu_lateral.getResourceId(0, -1), iconos_menu_lateral_b.getResourceId(0, -1), iconos_menu_lateral_r.getResourceId(0, -1), true, "0"));
+        items_menu.add(new Item_Menu_Lateral(0, titulos_menu_lateral[0], iconos_menu_lateral.get(0), iconos_menu_lateral_b.get(0), iconos_menu_lateral_r.get(0)));
         //Perfil
-        items_menu.add(new Item_Menu_Lateral(1, titulos_menu_lateral[1], iconos_menu_lateral.getResourceId(1, -1), iconos_menu_lateral_b.getResourceId(1, -1), iconos_menu_lateral_r.getResourceId(1, -1), true, "0"));
+        items_menu.add(new Item_Menu_Lateral(1, titulos_menu_lateral[1], iconos_menu_lateral.get(1), iconos_menu_lateral_b.get(1), iconos_menu_lateral_r.get(1)));
 
         switch (Integer.parseInt(rol_id)){
             case 2: //ADMIN
-                //Avance
-                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.getResourceId(2, -1), iconos_menu_lateral_b.getResourceId(2, -1), iconos_menu_lateral_r.getResourceId(2, -1), true, "0"));
-                //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
-                //Inspeccion
-                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.getResourceId(4, -1), iconos_menu_lateral_b.getResourceId(4, -1), iconos_menu_lateral_r.getResourceId(5, -1), true, "0"));
-                //Pagos
-                items_menu.add(new Item_Menu_Lateral(5, titulos_menu_lateral[5], iconos_menu_lateral.getResourceId(5, -1), iconos_menu_lateral_b.getResourceId(5, -1), iconos_menu_lateral_r.getResourceId(6, -1), true, "0"));
-                break;
             case 3: //REPRESENTANTE
-                //Avance
-                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.getResourceId(2, -1), iconos_menu_lateral_b.getResourceId(2, -1), iconos_menu_lateral_r.getResourceId(2, -1), true, "0"));
-                //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
-                //Inspeccion
-                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.getResourceId(4, -1), iconos_menu_lateral_b.getResourceId(4, -1), iconos_menu_lateral_r.getResourceId(5, -1), true, "0"));
-                //Pagos
-                items_menu.add(new Item_Menu_Lateral(5, titulos_menu_lateral[5], iconos_menu_lateral.getResourceId(5, -1), iconos_menu_lateral_b.getResourceId(5, -1), iconos_menu_lateral_r.getResourceId(6, -1), true, "0"));
-                break;
             case 8: //SICYT LECTURA
-                //Avance
-                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.getResourceId(2, -1), iconos_menu_lateral_b.getResourceId(2, -1), iconos_menu_lateral_r.getResourceId(2, -1), true, "0"));
-                //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
-                //Inspeccion
-                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.getResourceId(4, -1), iconos_menu_lateral_b.getResourceId(4, -1), iconos_menu_lateral_r.getResourceId(5, -1), true, "0"));
-                //Pagos
-                items_menu.add(new Item_Menu_Lateral(5, titulos_menu_lateral[5], iconos_menu_lateral.getResourceId(5, -1), iconos_menu_lateral_b.getResourceId(5, -1), iconos_menu_lateral_r.getResourceId(6, -1), true, "0"));
-                break;
             case 9: //SICYT EDITAR
                 //Avance
-                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.getResourceId(2, -1), iconos_menu_lateral_b.getResourceId(2, -1), iconos_menu_lateral_r.getResourceId(2, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.get(2), iconos_menu_lateral_b.get(2), iconos_menu_lateral_r.get(2)));
                 //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.get(3), iconos_menu_lateral_b.get(3), iconos_menu_lateral_r.get(3)));
                 //Inspeccion
-                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.getResourceId(4, -1), iconos_menu_lateral_b.getResourceId(4, -1), iconos_menu_lateral_r.getResourceId(5, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.get(4), iconos_menu_lateral_b.get(4), iconos_menu_lateral_r.get(4)));
                 //Pagos
-                items_menu.add(new Item_Menu_Lateral(5, titulos_menu_lateral[5], iconos_menu_lateral.getResourceId(5, -1), iconos_menu_lateral_b.getResourceId(5, -1), iconos_menu_lateral_r.getResourceId(6, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(5, titulos_menu_lateral[5], iconos_menu_lateral.get(5), iconos_menu_lateral_b.get(5), iconos_menu_lateral_r.get(5)));
+                //Salir
+                items_menu.add(new Item_Menu_Lateral(6, titulos_menu_lateral[6], iconos_menu_lateral.get(6), iconos_menu_lateral_b.get(6), iconos_menu_lateral_r.get(6)));
                 break;
             case 4: //GESTOR
                 //Avance
-                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.getResourceId(2, -1), iconos_menu_lateral_b.getResourceId(2, -1), iconos_menu_lateral_r.getResourceId(2, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(2, titulos_menu_lateral[2], iconos_menu_lateral.get(2), iconos_menu_lateral_b.get(2), iconos_menu_lateral_r.get(2)));
                 //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.get(3), iconos_menu_lateral_b.get(3), iconos_menu_lateral_r.get(3)));
+                //Salir
+                items_menu.add(new Item_Menu_Lateral(6, titulos_menu_lateral[6], iconos_menu_lateral.get(6), iconos_menu_lateral_b.get(6), iconos_menu_lateral_r.get(6)));
                 break;
             case 6: //INSPECTOR
                 //Notificaciones
-                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.getResourceId(3, -1), iconos_menu_lateral_b.getResourceId(3, -1), iconos_menu_lateral_r.getResourceId(3, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(3, titulos_menu_lateral[3], iconos_menu_lateral.get(3), iconos_menu_lateral_b.get(3), iconos_menu_lateral_r.get(3)));
                 //Inspeccion
-                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.getResourceId(4, -1), iconos_menu_lateral_b.getResourceId(4, -1), iconos_menu_lateral_r.getResourceId(5, -1), true, "0"));
+                items_menu.add(new Item_Menu_Lateral(4, titulos_menu_lateral[4], iconos_menu_lateral.get(4), iconos_menu_lateral_b.get(4), iconos_menu_lateral_r.get(4)));
+                //Salir
+                items_menu.add(new Item_Menu_Lateral(6, titulos_menu_lateral[6], iconos_menu_lateral.get(6), iconos_menu_lateral_b.get(6), iconos_menu_lateral_r.get(6)));
                 break;
         }
 
-        //Salir
-        items_menu.add(new Item_Menu_Lateral(6, titulos_menu_lateral[6], iconos_menu_lateral.getResourceId(6, -1), iconos_menu_lateral_b.getResourceId(6, -1), iconos_menu_lateral_r.getResourceId(7, -1), true, "0"));
-
-        iconos_menu_lateral.recycle();
         adapter = new Adaptador_Menu_Lateral(Activity_Main.this, items_menu, new Adaptador_Menu_Lateral.OnItemClickListener() {
             @Override
             public void OnItemClick(Item_Menu_Lateral item_menu_lateral) {
@@ -323,7 +324,7 @@ public class Activity_Main extends FragmentActivity {
                                         if(new Check_Internet().isConnected(Activity_Main.this)){
 
                                             //Aqui enviar info al Server...
-                                            new tareaSegundoPlano(lista_inspecciones).execute();
+                                            new TareaSegundoPlano(lista_inspecciones).execute();
                                         } else {
                                             Toast.makeText(Activity_Main.this, "Necesita conexión a Internet para realizar esta acción", Toast.LENGTH_LONG).show();
                                         }
@@ -404,7 +405,7 @@ public class Activity_Main extends FragmentActivity {
             public void run() {
                 SharedPreferences.Editor editor = getSharedPreferences("SIIGA_BD", MODE_PRIVATE).edit();
                 editor.putBoolean("recordar_contrasena", false);
-                editor.commit();
+                editor.apply();
 
                 dialog.dismiss();
                 Activity_Main.this.finish();
@@ -414,7 +415,6 @@ public class Activity_Main extends FragmentActivity {
     }
 
     public JSONObject desligar_token(){
-        JSONObject jsonObject = new JSONObject();
         SharedPreferences prefs = getSharedPreferences("SIIGA_BD", MODE_PRIVATE);
         String usuario_id = prefs.getString("usuario_id","0");
 
@@ -427,7 +427,7 @@ public class Activity_Main extends FragmentActivity {
         parametros_token.put("id", usuario_id);
         parametros_token.put("token_notificaciones","-1");
 
-        jsonObject = conectar.enviarParametros(url_token, parametros_token, Activity_Main.this);
+        JSONObject jsonObject = conectar.enviarParametros(url_token, parametros_token, Activity_Main.this);
 
         return  jsonObject;
 
@@ -493,13 +493,14 @@ public class Activity_Main extends FragmentActivity {
         return jsonPadre;
     }
 
-    private class tareaSegundoPlano extends AsyncTask<Void, Integer, Boolean> {
+    @SuppressLint("StaticFieldLeak")
+    class TareaSegundoPlano extends AsyncTask<Void, Integer, Boolean> {
 
         private ProgressDialog dialog;
         private List<String> lista_inspecciones;
         String url = "control-inspeccion.php";
 
-        public tareaSegundoPlano(List<String> lista_inspecciones) {
+        TareaSegundoPlano(List<String> lista_inspecciones) {
             this.lista_inspecciones = lista_inspecciones;
         }
 
@@ -537,12 +538,13 @@ public class Activity_Main extends FragmentActivity {
 
             SharedPreferences.Editor editor = getSharedPreferences("SIIGA_BD", MODE_PRIVATE).edit();
             editor.putBoolean("recordar_contrasena", false);
-            editor.commit();
+            editor.apply();
 
             Activity_Main.this.finish();
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class tareaDesligarToken extends AsyncTask<Void, Integer, Boolean> {
 
         private ProgressDialog dialog;
@@ -573,7 +575,7 @@ public class Activity_Main extends FragmentActivity {
                     //mostrarMsjSalir();
                     SharedPreferences.Editor editor = getSharedPreferences("SIIGA_BD", MODE_PRIVATE).edit();
                     editor.putBoolean("recordar_contrasena", false);
-                    editor.commit();
+                    editor.apply();
 
                     dialog.dismiss();
                     Activity_Main.this.finish();
