@@ -104,13 +104,13 @@ public class Fragment_Inspeccion_Inspector extends Fragment{
                         lista_inspeccion.add(new Inspeccion(
                                 inspecciones.getJSONObject(i).getString("id_inspeccion"),
                                 inspecciones.getJSONObject(i).getString("folio_inspeccion"),
-                                inspecciones.getJSONObject(i).getString("fecha_inspeccion"),
+                                inspecciones.getJSONObject(i).getString("fecha_realizar"),
                                 inspecciones.getJSONObject(i).getInt("id_institucion"),
                                 inspecciones.getJSONObject(i).getString("nombre_institucion"),
                                 inspecciones.getJSONObject(i).getInt("id_programa_educativo"),
                                 inspecciones.getJSONObject(i).getString("nombre_programa_educativo"),
                                 1,
-                                "Arturo",
+                                "",
                                 inspecciones.getJSONObject(i).getInt("estatus_inspeccion")
                         ));
                     }
